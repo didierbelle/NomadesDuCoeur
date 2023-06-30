@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Raleway&display=swap');
+
+:root{
+    /* --bg-color: #E5F9DB; */
+    --bg-color: #A0D8B377;
+    --second: #004100;
+    --third-col: #A2A378;
+    --special: #83764F;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid rgba(233, 12, 12, .3); */
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 5vh;
+    scrollbar-base-color: var(--second);
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: Raleway;
+}
+
+header{
+    height: 100vh;
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav{
+    display: flex;
+    width: 60%;
+    height: 15vh;
+    justify-content: space-between;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul:first-child li{
+    font-size: 2em;
+    font-family: 'Dancing Script'; 
+    transform: translateY(100%);
+    opacity: 0;
+    color: var(--special);
+    animation: moveUp 1.5s ease-out 4s forwards;
+}
+
+@keyframes moveUp{
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+
+nav ul:last-child li{
+    text-transform: capitalize;
+}
+
+nav ul:last-child li:hover{
+    color: var(--special);
+}
+
+ul li{
+    overflow: hidden;
+}
+
+nav ul:last-child{
+    width: 60%;
+    justify-content: space-evenly;
+    letter-spacing: 2px;
+}
+
+nav ul:last-child li:hover::after{
+    content: '';
+    display: flex;
+    position: absolute;
+    width: 50px;
+    margin-top: 1vw;
+    border: 1px solid var(--special);
+    transition: all ease 2s;
+}
+
+nav ul:last-child li:last-child{
+    text-transform: uppercase;
+    background-color: var(--special);
+    color: whitesmoke;
+    padding: 0 1vw;
+    border: 1px solid var(--special);
+    transition: all ease .3s;
+}
+
+nav ul:last-child li:last-child:hover{
+    padding: 1vw;
+}
+
+nav ul:last-child li:last-child:after{
+    display: none;
+}
+
+#hero-banner{
+    height: 85vh;
+    /* border: 1px solid yellow; */
+    display: flex;
+    width: 100%;
+}
+
+
+#hero-banner aside{
+    overflow: hidden;
+    width: 60%;
+    clip-path: ellipse(40% 50% at 50% 50%);
+
+    animation: clipper 50s linear 1s infinite alternate forwards;
+}
+
+@keyframes clipper {
+    33%{
+        clip-path: ellipse(90% 81% at 2% 40%);
+    }
+    70%{
+        clip-path: ellipse(90% 50% at 6% 25%);
+    }
+}
+
+#hero-banner aside img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(-100%);
+    animation: moveUp 1.5s cubic-bezier(0.51, 0.11, 0.09, 0.54) 3s forwards;
+}
+
+#hero-banner section{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10vw;
+    /* background-color: red; */
+    font-size: 5vw;
+}
+
+#hero-banner section div{
+    color: var(--second);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 70%;
+    line-height: 1.3;
+}
+
+hr{
+    margin: 5vw;
+    height: 5px;
+    background-color: var(--second);
+}
+
+
+/* MAIN */
+main{
+    background-color: white;
+}
+
+#our_goal{
+    height: 100vh;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.box{
+    height: 100vh;
+    padding-top: 50vh;
+}
+
+.box img{
+    object-fit: cover;
+    height: 700px;
+    width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* position: fixed; */
+}
+
+.img2 img{
+    /* position: fixed; */
+}
+
+main section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+main section:nth-child(1) aside{
+    padding-top: 5vw;
+    width: 50%;
+    overflow: hidden;
+    /* background-color: red; */
+    /* transform: translateX(-100%); */
+    animation: moveUp 15s ease-out 6s forwards;
+}
+
+main aside h1{
+    /* background-color: yellowgreen; */
+    /* transform: scale(4); */
+    -webkit-text-stroke: .4px var(--second);
+    color: transparent;
+    font-size: 3em;
+    white-space: nowrap;
+    animation: marquee 7s ease-in-out infinite;
+
+    /* padding: 0 1vw; */
+}
+
+main aside h1:after{
+    content: 'VELO - PETANQUE - SPORTS DE BALLE - NATATION -';
+    /* background-color: red; */
+}
+
+@keyframes marquee{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-75%);
+    }
+}
+
+#gallery{
+    width: 50%;
+    height: 100%;
+    background-color: var(--third-col);
+    /* clip-path: padding-box circle(50px at 0 100px); */
+    padding: 1vw;
+}
+
+#gallery img{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    opacity: .5;
+    transform: scale(.8);
+    object-fit: cover;
+}
