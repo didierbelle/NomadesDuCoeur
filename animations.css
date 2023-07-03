@@ -1,0 +1,58 @@
+@keyframes showUp{
+    to{
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes clipPathAnimation {
+
+    3%{
+        clip-path: ellipse(99% 99% at 20% 33%);
+    }
+    7%{
+        clip-path: ellipse(95% 95% at 15% 30%);
+    }
+    12%{
+        clip-path: ellipse(84% 84% at 13% 28%);
+    }
+    19%{
+        clip-path: ellipse(73% 73% at 11% 24%);
+    }
+    25%{
+        clip-path: ellipse(62% 62% at 10% 20%);
+    }
+    30%{
+        clip-path: ellipse(51% 51% at 10% 20%);
+    }
+    35%{
+        clip-path: ellipse(50% 50% at 70% 20%);
+    }
+    50%{
+        clip-path: ellipse(50% 50% at 50% 40%);
+    }
+    65%{
+        clip-path: ellipse(50% 50% at 60% 70%);
+    }
+    80%{
+        clip-path: ellipse(50% 50% at 30% 70%);
+    }
+    85%{
+        clip-path: ellipse(62% 62% at 10% 20%);
+    }
+    90%{
+        clip-path: ellipse(73% 73% at 11% 24%);
+    }
+    95%{
+        clip-path: ellipse(84% 84% at 13% 28%);
+    }
+    100%{
+        clip-path: ellipse(99% 99% at 15% 30%);
+    }
+}
+
+@keyframes rotatePresidentDescription {
+    to{
+        transform: rotate(-85deg);
+    }
+}
