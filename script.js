@@ -3,7 +3,7 @@ const MY_APP = {
     
     typeWriteEffect : () => {
         //declare variables
-        const words = ["Pour la RECRUDESCENCE...", "...des loisirs SIMPLES,", "dans le RESPECT de la NATURE."];
+        const words = ["Pour la PRISE DE CONSCIENCE...", "...sur l'ENVIRONNEMENT et la SANTE,", " autour d'activités SIMPLES."];
         let wordCount = 0;
         let letterCount = 0;
     
@@ -30,7 +30,7 @@ const MY_APP = {
     
             document.querySelector("#typewrite").textContent = currentText;
     
-            timeOut = isDeleting ? 50 : 150;
+            timeOut = isDeleting ? 40 : 150;
     
             if(!isDeleting && currentText.length === currentWord.length){
                 timeOut = 2000;
@@ -48,30 +48,46 @@ const MY_APP = {
 
     textRotation : () => {
         const text = document.querySelector("#parent-creator-image-container p");
+
         text.innerHTML = text.innerText.split("").map(
             (char, i) => 
             `<span style="transform: rotate(${i * 10}deg)">${char}</span>`
         ).join("");
     },
 
-    lazyLoading: () => {
+    lazyLoadingImages: target => {
+        const io = new IntersectionObserver((entries, observer) => {
+            
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    const img = entry.target;
+                    const src = img.getAttribute('data-lazy');
 
-        const targets = document.querySelectorAll("[data-lazy]");
-        console.log(targets);
+                    img.setAttribute('src', src);
+                    img.classList.add('fade');
 
-        window.addEventListener('scroll', (event) => {
-
-            targets.forEach( a_node => {
-                console.log('CHIT');
-                const rect = a_node.getBoundingClientRect().top;
-                if (rect <= window.innerHeight) {
-                    const src = a_node.getAttribute('data-lazy');
-                    a_node.setAttribute('src', src);
+                    observer.disconnect();
                 }
             })
-        })
+        });
+
+        io.observe(target);
+    },
+
+    getDate: target => {
+        const the_date = new Date().getFullYear();
+       target.innerHTML = the_date.toString();
     }
+
 }
+
+const targets = document.querySelectorAll("[data-lazy]");
+
+const birds = [document.querySelector("#bird-1"), document.querySelector("#bird-2"), document.querySelector("#bird-3")];
+
+const textToRotate = document.querySelector("#parent-creator-image-container p");
+
+const dateText = document.querySelector("footer #year");
 
 
 setTimeout(() => {
@@ -80,4 +96,7 @@ setTimeout(() => {
 
 MY_APP.textRotation();
 
-MY_APP.lazyLoading();
+MY_APP.getDate(dateText);
+
+
+targets.forEach(MY_APP.lazyLoadingImages);

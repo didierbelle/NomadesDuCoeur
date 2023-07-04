@@ -1,4 +1,4 @@
-@keyframes showUp{
+@keyframes cancelTransfprm{
     to{
         transform: none;
         opacity: 1;
@@ -51,8 +51,43 @@
     }
 }
 
-@keyframes rotatePresidentDescription {
+@keyframes marquee{
     to{
-        transform: rotate(-85deg);
+        transform: translateX(-218%);
+    }
+}
+
+
+@keyframes showGalleryImage{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes rotateCreatorDescription {
+    to{
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes revealFigcaption{
+    to{
+        opacity: 1;
+        transform: translateY(-101.5%);
+    }
+}
+
+@keyframes flying{
+    to{
+        transform: translate(10%, 5%);
+    }
+}
+
+@keyframes indicateRejoindre{
+    to{
+        opacity: 1;
     }
 }
